@@ -157,6 +157,6 @@ console.log(sumScopes)
 //         scores: 120
 //     },
 // }
-console.log(updatedStudents)
+// console.log(updatedStudents)
 
 

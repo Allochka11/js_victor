@@ -45,25 +45,33 @@ let students = [
 // console.log(students.sort((a, b) => a.scores - b.scores))
 // console.log(students.sort((a, b) => a.name.localeCompare(b.nam)))
 
-const nums = [11, 56, 47, 99, 12, 87, 34];
+// const nums = [11, 56, 47, 99, 12, 87, 34];
+//
+// for (let j = 0; j < nums.length - 1; j++) {
+//
+//     let isSorted = true;
+//     for (let i = 0; i < nums.length - 1 - j; i++) {
+//         if (nums[i] > nums[i + 1]) {
+//             isSorted = false;
+//             // let temp = nums[i];
+//             // nums[i] = nums[i + 1];
+//             // nums[i + 1] = temp
+//             [nums[i + 1], nums[i]] = [nums[i], nums[i + 1]];
+//
+//         }
+//     }
+//
+//     if (isSorted) break
+// }
+//
+//
+// console.log(nums)
+localStorage.setItem('item', new Date().getTime().toString());
+localStorage.getItem('item');
 
-for (let j = 0; j < nums.length - 1; j++) {
-
-    let isSorted = true;
-    for (let i = 0; i < nums.length - 1 - j; i++) {
-        if (nums[i] > nums[i + 1]) {
-            isSorted = false;
-            // let temp = nums[i];
-            // nums[i] = nums[i + 1];
-            // nums[i + 1] = temp
-            [nums[i + 1], nums[i]] = [nums[i], nums[i + 1]];
-
-        }
-    }
-
-    if (isSorted) break
-}
 
 
-console.log(nums)
+
+
+
 
