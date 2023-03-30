@@ -1,0 +1,75 @@
+<meta charset="UTF-8">
+<script src="doAfter.js"></script>
+<script src="axios.js"></script>
+<script src="api.js"></script>
+
+<script>
+
+    // api.sendStudentsCountToItKamasutra(20)
+    //     .then(res => {
+    //         console.log(res);
+    //         return res.data
+    //     })
+    //     .then((data) => {
+    //         console.log(data)
+    //     })
+
+    // let microsoft = api.getVacanciesCountFromMicrosoft();
+    // let google = api.getVacanciesCountFromGoogle();
+    //
+    // Promise.all([microsoft, google]).then((data) => {
+    //     let mVacanscies = data[0]
+    //     let gVacanscies = data[1]
+    //     console.log('making request to it-kamasutra')
+    //     return api.sendStudentsCountToItKamasutra(mVacanscies + gVacanscies)
+    //         .then(data => {
+    //             console.log(data);
+    //         });
+    // })
+    // let count = 0;
+    // api.getVacanciesCountFromMicrosoft()
+    //     .then((mCount) => {
+    //         count += mCount
+    //         return api.getVacanciesCountFromGoogle()
+    //     })
+    //     .then((gCount) => {
+    //         count += gCount;
+    //         return api.sendStudentsCountToItKamasutra(count)
+    //
+    //     })
+    //     .then(data => {
+    //         console.log(data);
+    //     });
+
+
+    let asyncFunk = async () => {
+        let microsoftCount = await api.getVacanciesCountFromMicrosoft();
+        let googleCount = await api.getVacanciesCountFromGoogle();
+        let res = await api.sendStudentsCountToItKamasutra(microsoftCount + googleCount);
+        console.log(res)
+    }
+    let asyncFunkParallel = async () => {
+        let mPr = await api.getVacanciesCountFromMicrosoft();
+        let gPr = await api.getVacanciesCountFromGoogle();
+        let resGM = await Promise.all([mPr, gPr]);
+        let res = await api.sendStudentsCountToItKamasutra(resGM[0] + resGM[1]);
+        console.log(res)
+    }
+    asyncFunkParallel()
+    // asyncFunk();
+
+
+    //
+    //
+    // // ниже по коду мы можем подписаться, на промис, чтобы он (промис) вызвал нашу функцию, когда он (промис) зарезолвится. Для этого передаём в метод then колбэк-функцию)
+    // doAfter(5).then(() => console.log('я сработал через 5 секунд'));
+    // doAfter(3).then(() => console.log('а я сработал через 3 секунд'));
+    // doAfter(10).then(() => console.log('я сработал через 10 секунд'));
+
+
+    // let promise3 = doAfter(3);
+    // promise3.then(() => console.log('я сработал через 3 секунд'));
+    // promise3.then(() => console.log('и я тоже следом сработал через 3 секунд'));
+    // promise3.then(() => console.log('и я'));
+
+</script>
