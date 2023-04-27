@@ -1,5 +1,6 @@
 class User {
     #name = '';
+    age = 31;
 
     constructor(name, site, dob) {
         this.#name = name
@@ -17,16 +18,20 @@ class User {
         return this.#name = name
     }
 
+    someFunc = function () {
+    }
+
     hello() {
         this.counter++
         // debugger
         // console.log(`This ${this.#name} counter = ${this.counter}`)
-        console.log(`Hi ${this.#name} from ${this.site} ! Your dob is ${this.dob}!`)
+        // console.log(`Hi ${this.#name} from ${this.site} ! Your dob is ${this.dob}!`)
     }
 
 }
 
 let u1 = new User('Alla', 'it-incubator', new Date(1992, 1, 26))
+// console.log(u1)
 let u2 = new User('ANN', 'it-incubator', new Date(1992, 1, 26))
 u2.name = 'Igor'
 
@@ -45,7 +50,7 @@ class Programmer extends User {
 
     hello() {
         super.hello();
-        console.log('And you go away')
+        // console.log('And you go away')
     }
 }
 
@@ -71,3 +76,23 @@ let hacker = new Hacker('Vova', 'dating', new Date(1991, 0, 25), 'php');
 
 let usersPolymorphism = [u1, u2, programmer, hacker];
 usersPolymorphism.forEach(u => u.hello())
+
+
+function User1() {
+
+}
+
+User1.defaultName = 'name default'
+console.dir(User1)
+
+class Test {
+    static NAME = 'Alla'
+
+    constructor(name) {
+        if (name !== Test.NAME) throw new Error('Name is wrong')
+        this.name = name
+    }
+}
+
+let a = new Test('Anya')
+console.log(Test)
