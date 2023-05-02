@@ -83,16 +83,37 @@ function User1() {
 }
 
 User1.defaultName = 'name default'
-console.dir(User1)
+
+// console.dir(User1)
 
 class Test {
     static NAME = 'Alla'
 
     constructor(name) {
-        if (name !== Test.NAME) throw new Error('Name is wrong')
+        // if (name !== Test.NAME) throw new Error('Name is wrong')
         this.name = name
     }
 }
 
 let a = new Test('Anya')
-console.log(Test)
+
+// console.log(a.__proto__.constructor.NAME)
+
+class Car {
+    constructor(name) {
+        this.name = name
+        // console.log('Car constructor')
+    }
+}
+
+class Ford extends Car {
+    constructor(name) {
+        // console.log('Ford constructor before')
+        super(name)
+
+
+    }
+}
+
+let mondeo = new Ford('Mondeo');
+console.log(mondeo)
